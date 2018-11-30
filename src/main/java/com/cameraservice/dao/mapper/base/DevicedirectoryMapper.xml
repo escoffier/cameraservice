@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cameraservice.dao.mapper.base.DevicedirectoryMapper">
+
+	<insert id="insert" parameterType="com.cameraservice.dao.entity.DevicedirectoryEty">
+		insert into devicedirectory(
+			id,gatewayid,parentid,deviceid,devicename,firmsname,devicetype,ownerto,civilcode,address,registertype,secrecy,username,deviceip,deviceport,userpwd,longitude,latitude,mediaformat,devstorage,nodetype,block,parental,safetyway,certnum,certifiable,errcode,endtime,devstatus,ptz,position,room,application,supplylight,direction,resolution,businessgroup,channel,islogin,lowplatdevsn,share,online,state)
+		values (
+			#{id},#{gatewayid},#{parentid},#{deviceid},#{devicename},#{firmsname},#{devicetype},#{ownerto},#{civilcode},#{address},#{registertype},#{secrecy},#{username},#{deviceip},#{deviceport},#{userpwd},#{longitude},#{latitude},#{mediaformat},#{devstorage},#{nodetype},#{block},#{parental},#{safetyway},#{certnum},#{certifiable},#{errcode},#{endtime},#{devstatus},#{ptz},#{position},#{room},#{application},#{supplylight},#{direction},#{resolution},#{businessgroup},#{channel},#{islogin},#{lowplatdevsn},#{share},#{online},#{state}
+		)
+	</insert>
+
+	<select id="selectById" parameterType="long" resultType="com.cameraservice.dao.entity.DevicedirectoryEty">
+		select * from devicedirectory where id=#{value}
+	</select>
+
+	<delete id="deleteById" parameterType="long">
+		DELETE FROM devicedirectory WHERE id=#{value}
+	</delete>
+
+	<select id="selectByEntity" parameterType="com.cameraservice.dao.entity.DevicedirectoryEty" resultType="com.cameraservice.dao.entity.DevicedirectoryEty">
+		SELECT * from devicedirectory
+		<where> 
+			<if test="id != null "> AND id=#{id}</if>
+			<if test="gatewayid != null  and gatewayid != ''"> AND gatewayid=#{gatewayid}</if>
+			<if test="parentid != null  and parentid != ''"> AND parentid=#{parentid}</if>
+			<if test="deviceid != null  and deviceid != ''"> AND deviceid=#{deviceid}</if>
+			<if test="devicename != null  and devicename != ''"> AND devicename=#{devicename}</if>
+			<if test="firmsname != null  and firmsname != ''"> AND firmsname=#{firmsname}</if>
+			<if test="devicetype != null  and devicetype != ''"> AND devicetype=#{devicetype}</if>
+			<if test="ownerto != null  and ownerto != ''"> AND ownerto=#{ownerto}</if>
+			<if test="civilcode != null  and civilcode != ''"> AND civilcode=#{civilcode}</if>
+			<if test="address != null  and address != ''"> AND address=#{address}</if>
+			<if test="registertype != null  and registertype != ''"> AND registertype=#{registertype}</if>
+			<if test="secrecy != null  and secrecy != ''"> AND secrecy=#{secrecy}</if>
+			<if test="username != null  and username != ''"> AND username=#{username}</if>
+			<if test="deviceip != null  and deviceip != ''"> AND deviceip=#{deviceip}</if>
+			<if test="deviceport != null  and deviceport != ''"> AND deviceport=#{deviceport}</if>
+			<if test="userpwd != null  and userpwd != ''"> AND userpwd=#{userpwd}</if>
+			<if test="longitude != null  and longitude != ''"> AND longitude=#{longitude}</if>
+			<if test="latitude != null  and latitude != ''"> AND latitude=#{latitude}</if>
+			<if test="mediaformat != null  and mediaformat != ''"> AND mediaformat=#{mediaformat}</if>
+			<if test="devstorage != null "> AND devstorage=#{devstorage}</if>
+			<if test="nodetype != null "> AND nodetype=#{nodetype}</if>
+			<if test="block != null  and block != ''"> AND block=#{block}</if>
+			<if test="parental != null  and parental != ''"> AND parental=#{parental}</if>
+			<if test="safetyway != null  and safetyway != ''"> AND safetyway=#{safetyway}</if>
+			<if test="certnum != null  and certnum != ''"> AND certnum=#{certnum}</if>
+			<if test="certifiable != null  and certifiable != ''"> AND certifiable=#{certifiable}</if>
+			<if test="errcode != null  and errcode != ''"> AND errcode=#{errcode}</if>
+			<if test="endtime != null  and endtime != ''"> AND endtime=#{endtime}</if>
+			<if test="devstatus != null  and devstatus != ''"> AND devstatus=#{devstatus}</if>
+			<if test="ptz != null  and ptz != ''"> AND ptz=#{ptz}</if>
+			<if test="position != null  and position != ''"> AND position=#{position}</if>
+			<if test="room != null  and room != ''"> AND room=#{room}</if>
+			<if test="application != null  and application != ''"> AND application=#{application}</if>
+			<if test="supplylight != null  and supplylight != ''"> AND supplylight=#{supplylight}</if>
+			<if test="direction != null  and direction != ''"> AND direction=#{direction}</if>
+			<if test="resolution != null  and resolution != ''"> AND resolution=#{resolution}</if>
+			<if test="businessgroup != null  and businessgroup != ''"> AND businessgroup=#{businessgroup}</if>
+			<if test="channel != null  and channel != ''"> AND channel=#{channel}</if>
+			<if test="islogin != null "> AND islogin=#{islogin}</if>
+			<if test="lowplatdevsn != null "> AND lowplatdevsn=#{lowplatdevsn}</if>
+			<if test="share != null "> AND share=#{share}</if>
+			<if test="online != null "> AND online=#{online}</if>
+			<if test="state != null "> AND state=#{state}</if>
+		</where> 
+	</select>
+
+	<update id="updateById" parameterType="com.cameraservice.dao.entity.DevicedirectoryEty">
+		UPDATE devicedirectory
+		<set> 
+			<if test="gatewayid != null">gatewayid=#{gatewayid},</if>
+			<if test="parentid != null">parentid=#{parentid},</if>
+			<if test="deviceid != null">deviceid=#{deviceid},</if>
+			<if test="devicename != null">devicename=#{devicename},</if>
+			<if test="firmsname != null">firmsname=#{firmsname},</if>
+			<if test="devicetype != null">devicetype=#{devicetype},</if>
+			<if test="ownerto != null">ownerto=#{ownerto},</if>
+			<if test="civilcode != null">civilcode=#{civilcode},</if>
+			<if test="address != null">address=#{address},</if>
+			<if test="registertype != null">registertype=#{registertype},</if>
+			<if test="secrecy != null">secrecy=#{secrecy},</if>
+			<if test="username != null">username=#{username},</if>
+			<if test="deviceip != null">deviceip=#{deviceip},</if>
+			<if test="deviceport != null">deviceport=#{deviceport},</if>
+			<if test="userpwd != null">userpwd=#{userpwd},</if>
+			<if test="longitude != null">longitude=#{longitude},</if>
+			<if test="latitude != null">latitude=#{latitude},</if>
+			<if test="mediaformat != null">mediaformat=#{mediaformat},</if>
+			<if test="devstorage != null">devstorage=#{devstorage},</if>
+			<if test="nodetype != null">nodetype=#{nodetype},</if>
+			<if test="block != null">block=#{block},</if>
+			<if test="parental != null">parental=#{parental},</if>
+			<if test="safetyway != null">safetyway=#{safetyway},</if>
+			<if test="certnum != null">certnum=#{certnum},</if>
+			<if test="certifiable != null">certifiable=#{certifiable},</if>
+			<if test="errcode != null">errcode=#{errcode},</if>
+			<if test="endtime != null">endtime=#{endtime},</if>
+			<if test="devstatus != null">devstatus=#{devstatus},</if>
+			<if test="ptz != null">ptz=#{ptz},</if>
+			<if test="position != null">position=#{position},</if>
+			<if test="room != null">room=#{room},</if>
+			<if test="application != null">application=#{application},</if>
+			<if test="supplylight != null">supplylight=#{supplylight},</if>
+			<if test="direction != null">direction=#{direction},</if>
+			<if test="resolution != null">resolution=#{resolution},</if>
+			<if test="businessgroup != null">businessgroup=#{businessgroup},</if>
+			<if test="channel != null">channel=#{channel},</if>
+			<if test="islogin != null">islogin=#{islogin},</if>
+			<if test="lowplatdevsn != null">lowplatdevsn=#{lowplatdevsn},</if>
+			<if test="share != null">share=#{share},</if>
+			<if test="online != null">online=#{online},</if>
+			<if test="state != null">state=#{state},</if>
+		</set> 
+		WHERE id=#{id}
+	</update>
+
+	<select id="selectByLimit" resultType="com.cameraservice.dao.entity.DevicedirectoryEty">
+		SELECT * from devicedirectory
+		<where> 
+			<if test="ety.id != null "> AND id=#{ety.id}</if>
+			<if test="ety.gatewayid != null  and ety.gatewayid != ''"> AND gatewayid=#{ety.gatewayid}</if>
+			<if test="ety.parentid != null  and ety.parentid != ''"> AND parentid=#{ety.parentid}</if>
+			<if test="ety.deviceid != null  and ety.deviceid != ''"> AND deviceid=#{ety.deviceid}</if>
+			<if test="ety.devicename != null  and ety.devicename != ''"> AND devicename=#{ety.devicename}</if>
+			<if test="ety.firmsname != null  and ety.firmsname != ''"> AND firmsname=#{ety.firmsname}</if>
+			<if test="ety.devicetype != null  and ety.devicetype != ''"> AND devicetype=#{ety.devicetype}</if>
+			<if test="ety.ownerto != null  and ety.ownerto != ''"> AND ownerto=#{ety.ownerto}</if>
+			<if test="ety.civilcode != null  and ety.civilcode != ''"> AND civilcode=#{ety.civilcode}</if>
+			<if test="ety.address != null  and ety.address != ''"> AND address=#{ety.address}</if>
+			<if test="ety.registertype != null  and ety.registertype != ''"> AND registertype=#{ety.registertype}</if>
+			<if test="ety.secrecy != null  and ety.secrecy != ''"> AND secrecy=#{ety.secrecy}</if>
+			<if test="ety.username != null  and ety.username != ''"> AND username=#{ety.username}</if>
+			<if test="ety.deviceip != null  and ety.deviceip != ''"> AND deviceip=#{ety.deviceip}</if>
+			<if test="ety.deviceport != null  and ety.deviceport != ''"> AND deviceport=#{ety.deviceport}</if>
+			<if test="ety.userpwd != null  and ety.userpwd != ''"> AND userpwd=#{ety.userpwd}</if>
+			<if test="ety.longitude != null  and ety.longitude != ''"> AND longitude=#{ety.longitude}</if>
+			<if test="ety.latitude != null  and ety.latitude != ''"> AND latitude=#{ety.latitude}</if>
+			<if test="ety.mediaformat != null  and ety.mediaformat != ''"> AND mediaformat=#{ety.mediaformat}</if>
+			<if test="ety.devstorage != null "> AND devstorage=#{ety.devstorage}</if>
+			<if test="ety.nodetype != null "> AND nodetype=#{ety.nodetype}</if>
+			<if test="ety.block != null  and ety.block != ''"> AND block=#{ety.block}</if>
+			<if test="ety.parental != null  and ety.parental != ''"> AND parental=#{ety.parental}</if>
+			<if test="ety.safetyway != null  and ety.safetyway != ''"> AND safetyway=#{ety.safetyway}</if>
+			<if test="ety.certnum != null  and ety.certnum != ''"> AND certnum=#{ety.certnum}</if>
+			<if test="ety.certifiable != null  and ety.certifiable != ''"> AND certifiable=#{ety.certifiable}</if>
+			<if test="ety.errcode != null  and ety.errcode != ''"> AND errcode=#{ety.errcode}</if>
+			<if test="ety.endtime != null  and ety.endtime != ''"> AND endtime=#{ety.endtime}</if>
+			<if test="ety.devstatus != null  and ety.devstatus != ''"> AND devstatus=#{ety.devstatus}</if>
+			<if test="ety.ptz != null  and ety.ptz != ''"> AND ptz=#{ety.ptz}</if>
+			<if test="ety.position != null  and ety.position != ''"> AND position=#{ety.position}</if>
+			<if test="ety.room != null  and ety.room != ''"> AND room=#{ety.room}</if>
+			<if test="ety.application != null  and ety.application != ''"> AND application=#{ety.application}</if>
+			<if test="ety.supplylight != null  and ety.supplylight != ''"> AND supplylight=#{ety.supplylight}</if>
+			<if test="ety.direction != null  and ety.direction != ''"> AND direction=#{ety.direction}</if>
+			<if test="ety.resolution != null  and ety.resolution != ''"> AND resolution=#{ety.resolution}</if>
+			<if test="ety.businessgroup != null  and ety.businessgroup != ''"> AND businessgroup=#{ety.businessgroup}</if>
+			<if test="ety.channel != null  and ety.channel != ''"> AND channel=#{ety.channel}</if>
+			<if test="ety.islogin != null "> AND islogin=#{ety.islogin}</if>
+			<if test="ety.lowplatdevsn != null "> AND lowplatdevsn=#{ety.lowplatdevsn}</if>
+			<if test="ety.share != null "> AND share=#{ety.share}</if>
+			<if test="ety.online != null "> AND online=#{ety.online}</if>
+			<if test="ety.state != null "> AND state=#{ety.state}</if>
+		</where> 
+		<if test="limit == null"> order by id desc</if>
+		<if test="limit != null">
+			<if test="limit.sort == null"> order by id desc</if>
+			<if test="limit.sort != null"> order by ${limit.sort} ${limit.dir}</if>
+			<if test="limit.limit != null"> limit ${limit.start}, ${limit.limit}</if>
+		</if>
+	</select>
+
+	<select id="selectLimitCount" resultType="long">
+		SELECT count(1) from devicedirectory
+		<where> 
+			<if test="ety.id != null "> AND id=#{ety.id}</if>
+			<if test="ety.gatewayid != null  and ety.gatewayid != ''"> AND gatewayid=#{ety.gatewayid}</if>
+			<if test="ety.parentid != null  and ety.parentid != ''"> AND parentid=#{ety.parentid}</if>
+			<if test="ety.deviceid != null  and ety.deviceid != ''"> AND deviceid=#{ety.deviceid}</if>
+			<if test="ety.devicename != null  and ety.devicename != ''"> AND devicename=#{ety.devicename}</if>
+			<if test="ety.firmsname != null  and ety.firmsname != ''"> AND firmsname=#{ety.firmsname}</if>
+			<if test="ety.devicetype != null  and ety.devicetype != ''"> AND devicetype=#{ety.devicetype}</if>
+			<if test="ety.ownerto != null  and ety.ownerto != ''"> AND ownerto=#{ety.ownerto}</if>
+			<if test="ety.civilcode != null  and ety.civilcode != ''"> AND civilcode=#{ety.civilcode}</if>
+			<if test="ety.address != null  and ety.address != ''"> AND address=#{ety.address}</if>
+			<if test="ety.registertype != null  and ety.registertype != ''"> AND registertype=#{ety.registertype}</if>
+			<if test="ety.secrecy != null  and ety.secrecy != ''"> AND secrecy=#{ety.secrecy}</if>
+			<if test="ety.username != null  and ety.username != ''"> AND username=#{ety.username}</if>
+			<if test="ety.deviceip != null  and ety.deviceip != ''"> AND deviceip=#{ety.deviceip}</if>
+			<if test="ety.deviceport != null  and ety.deviceport != ''"> AND deviceport=#{ety.deviceport}</if>
+			<if test="ety.userpwd != null  and ety.userpwd != ''"> AND userpwd=#{ety.userpwd}</if>
+			<if test="ety.longitude != null  and ety.longitude != ''"> AND longitude=#{ety.longitude}</if>
+			<if test="ety.latitude != null  and ety.latitude != ''"> AND latitude=#{ety.latitude}</if>
+			<if test="ety.mediaformat != null  and ety.mediaformat != ''"> AND mediaformat=#{ety.mediaformat}</if>
+			<if test="ety.devstorage != null "> AND devstorage=#{ety.devstorage}</if>
+			<if test="ety.nodetype != null "> AND nodetype=#{ety.nodetype}</if>
+			<if test="ety.block != null  and ety.block != ''"> AND block=#{ety.block}</if>
+			<if test="ety.parental != null  and ety.parental != ''"> AND parental=#{ety.parental}</if>
+			<if test="ety.safetyway != null  and ety.safetyway != ''"> AND safetyway=#{ety.safetyway}</if>
+			<if test="ety.certnum != null  and ety.certnum != ''"> AND certnum=#{ety.certnum}</if>
+			<if test="ety.certifiable != null  and ety.certifiable != ''"> AND certifiable=#{ety.certifiable}</if>
+			<if test="ety.errcode != null  and ety.errcode != ''"> AND errcode=#{ety.errcode}</if>
+			<if test="ety.endtime != null  and ety.endtime != ''"> AND endtime=#{ety.endtime}</if>
+			<if test="ety.devstatus != null  and ety.devstatus != ''"> AND devstatus=#{ety.devstatus}</if>
+			<if test="ety.ptz != null  and ety.ptz != ''"> AND ptz=#{ety.ptz}</if>
+			<if test="ety.position != null  and ety.position != ''"> AND position=#{ety.position}</if>
+			<if test="ety.room != null  and ety.room != ''"> AND room=#{ety.room}</if>
+			<if test="ety.application != null  and ety.application != ''"> AND application=#{ety.application}</if>
+			<if test="ety.supplylight != null  and ety.supplylight != ''"> AND supplylight=#{ety.supplylight}</if>
+			<if test="ety.direction != null  and ety.direction != ''"> AND direction=#{ety.direction}</if>
+			<if test="ety.resolution != null  and ety.resolution != ''"> AND resolution=#{ety.resolution}</if>
+			<if test="ety.businessgroup != null  and ety.businessgroup != ''"> AND businessgroup=#{ety.businessgroup}</if>
+			<if test="ety.channel != null  and ety.channel != ''"> AND channel=#{ety.channel}</if>
+			<if test="ety.islogin != null "> AND islogin=#{ety.islogin}</if>
+			<if test="ety.lowplatdevsn != null "> AND lowplatdevsn=#{ety.lowplatdevsn}</if>
+			<if test="ety.share != null "> AND share=#{ety.share}</if>
+			<if test="ety.online != null "> AND online=#{ety.online}</if>
+			<if test="ety.state != null "> AND state=#{ety.state}</if>
+		</where> 
+	</select>
+</mapper>
